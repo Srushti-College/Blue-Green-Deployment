@@ -98,9 +98,9 @@ resource "aws_eks_cluster" "devopsshack" {
 
 resource "aws_eks_node_group" "server" {
   cluster_name    = aws_eks_cluster.devopsshack.name
-  node_group_name = "devopsshack-node-group"
-  node_role_arn   = aws_iam_role.devopsshack_node_group_role.arn
-  subnet_ids      = aws_subnet.devopsshack_subnet[*].id
+  node_group_name = "server-node-group"
+  node_role_arn   = aws_iam_role.server_node_group_role.arn
+  subnet_ids      = aws_subnet.server_subnet[*].id
 
   scaling_config {
     desired_size = 3
